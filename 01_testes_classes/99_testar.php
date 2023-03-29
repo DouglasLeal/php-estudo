@@ -1,5 +1,6 @@
 <?php
-require_once "00_Conta.php";
+require_once "01_ContaCorrente.php";
+require_once "02_ContaPoupanca.php";
 
 function separador() : void
 {
@@ -15,13 +16,10 @@ function cls()
 
 cls();
 
-$c1 = new Conta("Douglas", 1001, 100);
-$c2 = new Conta("Ana", 1002, 100);
+$cc = new ContaCorrente("Douglas", 1001, 100);
+$cp = new ContaPoupanca("Ana", 1002, 100);
 
-print($c1);
-print($c2);
-separador();
+$cc->transferir(50, $cp);
 
-$c1->transferir(50, $c2);
-print($c1);
-print($c2);
+echo $cc->__toString();
+echo $cp->__toString();

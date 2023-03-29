@@ -1,9 +1,9 @@
 <?php
-class Conta
+abstract class Conta
 {
    private string $titular;
    private int $conta;
-   private float $saldo;
+   protected float $saldo;
 
    public function __construct(string $titular, int $conta, float $saldo)
    {
@@ -54,5 +54,6 @@ class Conta
    {
       return "Titular: {$this->titular} | Saldo: {$this->saldo} | Conta: {$this->conta}" . PHP_EOL;
    }
+
 }
 
