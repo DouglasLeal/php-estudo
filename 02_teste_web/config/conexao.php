@@ -1,4 +1,5 @@
 <?php
+
 class Conexao {
     private $host = 'localhost';
     private $dbname = 'estudo-php';

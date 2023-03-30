@@ -8,7 +8,7 @@ class Pessoa
         if($altura > 3){
             $this->altura  = $altura/100;
         }
-       $this->imc = $this->calcularIMC();
+        $this->imc = $this->calcularIMC();
     }
 
     private function calcularIMC() : float{

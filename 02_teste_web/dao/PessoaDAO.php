@@ -22,6 +22,14 @@ class PessoaDAO {
 
     public function buscarTodos() {
         $stmt = $this->conexao->query('SELECT * FROM pessoas');
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $pessoas = [];
+
+        foreach ($resultado as $p){
+            $pessoa = new Pessoa($p['nome'], $p['peso'], $p['altura'], $p['id']);
+            $pessoas[] = $pessoa;
+        }
+
+        return $pessoas;
     }
 }
