@@ -4,12 +4,15 @@ class Pessoa
 {
     private float $imc;
 
-    public function __construct(private $nome, private $peso, private $altura){
-        $this->calcularIMC();
+    public function __construct(private $nome, private $peso, private $altura, private $id = null){
+        if($altura > 3){
+            $this->altura  = $altura/100;
+        }
+       $this->imc = $this->calcularIMC();
     }
 
-    private function calcularIMC() : void{
-        $this->imc = $this->peso / ($this->altura * $this->altura);
+    private function calcularIMC() : float{
+        return round($this->peso / ($this->altura * $this->altura), 2);
     }
 
     public function getNome(): string{
@@ -26,5 +29,9 @@ class Pessoa
 
     public function getIMC(): float{
         return $this->imc;
+    }
+
+    public function getId(): int{
+        return $this->id;
     }
 }
