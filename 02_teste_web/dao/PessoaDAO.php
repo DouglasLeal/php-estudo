@@ -32,4 +32,14 @@ class PessoaDAO {
 
         return $pessoas;
     }
+
+    public function buscarPorId($id){
+        $stmt = $this->conexao->prepare('SELECT * FROM pessoas WHERE id = ?');
+        $stmt->execute([$id]);
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $pessoa = new Pessoa($resultado['nome'], $resultado['peso'], $resultado['altura'], $resultado['id']);
+            
+        return $pessoa;
+    }
 }

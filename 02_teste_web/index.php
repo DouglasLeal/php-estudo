@@ -20,6 +20,7 @@ require_once 'header.php' ?>
                 <th>Peso</th>
                 <th>Altura</th>
                 <th>IMC</th>
+                <th width="300px">#</th>
             </tr>
             </thead>
             <tbody>
@@ -31,10 +32,11 @@ require_once 'header.php' ?>
                     <td><?= $pessoa->getPeso() ?></td>
                     <td><?= $pessoa->getAltura() ?></td>
                     <td><?= $pessoa->getIMC() ?></td>
-                    <td>
+                    <td class="d-flex justify-content-center">
+                        <a href=<?= "./form.php?id={$pessoa->getId()}" ?> class="btn btn-warning me-3">editar</a>
                         <form action="./logica/pessoa-excluir.php"  method="post">
                             <input name="id" type="hidden" value="<?= $pessoa->getId(); ?>">
-                            <button type="submit" class="btn btn-danger">X</button>
+                            <button type="submit" class="btn btn-danger">excluir</button>
                         </form>
                     </td>
                 </tr>
